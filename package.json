@@ -1,0 +1,58 @@
+{
+  "name": "appname",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "electron-is-dev": "^1.1.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "3.1.1"
+  },
+  "scripts": {
+    "start": "rescripts start",
+    "build": "rescripts build",
+    "test": "rescripts test",
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "postinstall": "electron-builder install-app-deps",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "build -mw",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+  },
+  "devDependencies": {
+    "@rescripts/cli": "^0.0.11",
+    "@rescripts/rescript-env": "^0.0.10",
+    "concurrently": "^4.1.2",
+    "electron": "^6.0.7",
+    "electron-builder": "^21.2.0",
+    "typescript": "^3.6.2",
+    "wait-on": "^3.3.0"
+  },
+  "homepage": "./",
+  "main": "public/electron.js",
+  "author": {
+    "name": "Khanh Mai",
+    "email": "ikhanhmai@gmail.com",
+    "url": "https://maikhanh.blog"
+  },
+  "build": {
+    "appId": "com.maikhanh.appname",
+    "productName": "appname",
+    "copyright": "Copyright © 2019 ${author}",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "files": ["build/**/*", "node_modules/**/*"],
+    "directories": {
+      "buildResources": "assets"
+    }
+  }
+}
